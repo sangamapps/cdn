@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 
-const morgan = require('morgan');
-app.use(morgan("common"));
+if (process.env.NODE_ENV != "production") {
+    const morgan = require('morgan');
+    app.use(morgan("dev"));
+}
 
 const { PORT, PATHS } = require("./config");
 
