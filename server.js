@@ -10,7 +10,7 @@ PATHS.forEach(path => {
     app.use("/" + path, express.static(path));
 })
 
-app.listen(PORT, (err) => {
+app.listen(process.env.PORT || PORT, (err) => {
     if (err) throw err;
     console.log("Serving on http://localhost:" + PORT);
 })
